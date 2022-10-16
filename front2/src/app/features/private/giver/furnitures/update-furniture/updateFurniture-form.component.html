@@ -1,0 +1,65 @@
+<form dForm [layout]="layout" ngForm (dSubmit)="OnClick()">
+  <da-layout-col [daGutter]="[0, 0]">
+    <da-row-item>
+      <d-form-item>
+        <d-form-label [required]="true" [hasHelp]="true" [helpTips]="'This is the plan name.'" autocomplete="off"
+          >Furniture Description</d-form-label
+        >
+        <d-form-control>
+          <input dTextInput [(ngModel)]="description" name="description" />
+        </d-form-control>
+      </d-form-item>
+    </da-row-item>
+    <da-row-item>
+      <d-form-item>
+        <d-form-label [required]="true" [hasHelp]="true" [helpTips]="'This is the plan name.'" autocomplete="off"
+          >Furniture Title</d-form-label
+        >
+        <d-form-control>
+          <input dTextInput [(ngModel)]="title" name="title" />
+        </d-form-control>
+      </d-form-item>
+    </da-row-item>
+    <da-row-item>
+      <d-form-item>
+        <d-form-label [required]="true" [hasHelp]="true" [helpTips]="'This is the plan name.'" autocomplete="off"
+          >Furniture Body</d-form-label
+        >
+        <d-form-control>
+          <input dTextInput [(ngModel)]="body" name="body" />
+        </d-form-control>
+      </d-form-item>
+    </da-row-item>
+    <da-row-item>
+      <d-form-item>
+        <d-form-label [required]="true">Initiator</d-form-label>
+        <d-form-control>
+          <d-select [options]="furCategory" name="initiator" size="sm" [filterKey]="'name'" [(ngModel)]="furnitureCategory"></d-select>
+        </d-form-control>
+      </d-form-item>
+    </da-row-item>
+
+    <da-row-item>
+      <d-form-item>
+        <d-form-label>Related Labels</d-form-label>
+        <d-form-control>
+          <d-tags-input
+            name="tag"
+            (click)="$event.stopPropagation()"
+            [displayProperty]="'label'"
+            [tags]="addedLabelList"
+            [placeholder]="'please add a tag'"
+            [suggestionList]="labelList"
+          >
+          </d-tags-input>
+        </d-form-control>
+      </d-form-item>
+    </da-row-item>
+
+    <da-row-item>
+      <d-form-operation>
+        <d-button class="mr-element-spacing" circled="true" style="margin-right: 8px" dFormSubmit>Submit</d-button>
+      </d-form-operation>
+    </da-row-item>
+  </da-layout-col>
+</form>
